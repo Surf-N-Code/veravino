@@ -1,16 +1,8 @@
-"use client";
 
-import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
+import { SmoothScrollButton } from "@/components/ui/smooth-scroll-button";
 
 const CTASection = () => {
-  const scrollToDemo = () => {
-    const demoSection = document.getElementById('demo');
-    if (demoSection) {
-      demoSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="py-20 px-6 bg-[rgb(30,58,43)]">
       <div className="container mx-auto max-w-4xl text-center">
@@ -18,13 +10,13 @@ const CTASection = () => {
           Bereit, Weinverkauf neu zu denken?
         </h2>
         
-        <Button 
-          onClick={scrollToDemo}
+        <SmoothScrollButton 
+          targetId="kontakt"
           className="bg-[rgb(207,220,255)] text-[rgb(30,58,43)] hover:bg-white hover:text-[rgb(30,58,43)] px-10 py-6 text-xl font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all"
         >
           <MessageCircle className="w-6 h-6 mr-3" />
           Kontaktieren Sie uns
-        </Button>
+        </SmoothScrollButton>
         
         <div className="mt-8 text-white/90">
           <p className="text-lg font-medium">

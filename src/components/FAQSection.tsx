@@ -6,7 +6,7 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "Wie aufwendig ist die Datenpflege?",
-      answer: "Nur ein monatlicher CSV-Export – alles andere automatisiert Nina."
+      answer: "Nur ein monatlicher CSV-Export – alles andere automatisiert Vera Vino."
     },
     {
       question: "Können wir eigene Antworten hinterlegen?",

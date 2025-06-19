@@ -5,7 +5,7 @@ import { Star } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "Seit Nina online ist, kaufen Besucher doppelt so oft direkt nach der Beratung.",
+      quote: "Seit Vera Vino online ist, kaufen Besucher doppelt so oft direkt nach der Beratung.",
       author: "Max Mustermann",
       role: "E-Commerce-Manager",
       company: "Weingut Mustermann",

@@ -1,7 +1,7 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
+import { SmoothScrollButton } from "@/components/ui/smooth-scroll-button";
 
 const PricingSection = () => {
   const packages = [
@@ -9,7 +9,6 @@ const PricingSection = () => {
       name: "Starter",
       oneTime: "7 500 €",
       monthly: "600 €",
-      description: "Weingüter mit ≤ 50k Seitenaufrufe/Monat",
       popular: false,
       features: [
         "Grundausstattung Chat-Widget",
@@ -22,10 +21,9 @@ const PricingSection = () => {
       name: "Growth",
       oneTime: "12 500 €",
       monthly: "850 €",
-      description: "Mehr Traffic, Quartals-Workshops inkl.",
       popular: true,
       features: [
-        "Erweiterte Funktionen",
+        "Erweiterte Kundensupport Funktionen",
         "Quartals-Workshops",
         "Prioritäts-Support",
         "Analytics Dashboard",
@@ -33,16 +31,18 @@ const PricingSection = () => {
       ]
     },
     {
-      name: "Flex",
-      oneTime: "–",
-      monthly: "95 €/Std.",
-      description: "Projektbasiert & Einzelanpassungen",
+      name: "Enterprise",
+      oneTime: "contact us",
+      monthly: "contact us",
       popular: false,
       features: [
-        "Stundenbasis",
-        "Maximale Flexibilität",
-        "Individuelle Projekte",
-        "Auf Anfrage"
+        "Alle Growth-Features",
+        "Direkte Anbindung an Ihr Shopsystem",
+        "24/7 Premium Support",
+        "Monatliche Strategy-Meetings",
+        "Custom Integration-Support",
+        "Dedizierter Account Manager",
+        "VIP Onboarding"
       ]
     }
   ];
@@ -72,18 +72,23 @@ const PricingSection = () => {
                   {pkg.name}
                 </CardTitle>
                 <div className="space-y-2">
-                  <div className="text-3xl font-bold text-[rgb(30,58,43)]">
-                    {pkg.oneTime}
-                    {pkg.oneTime !== "–" && <span className="text-sm text-[rgb(30,58,43)]/60 font-normal"> einmalig</span>}
-                  </div>
-                  <div className="text-xl text-[rgb(30,58,43)] font-semibold">
-                    {pkg.monthly}
-                    {!pkg.monthly.includes("Std.") && <span className="text-sm text-[rgb(30,58,43)]/60 font-normal"> monatlich</span>}
-                  </div>
+                  {pkg.name !== "Enterprise" ? (
+                    <>
+                      <div className="text-3xl font-bold text-[rgb(30,58,43)]">
+                        {pkg.oneTime}
+                        {pkg.oneTime !== "–" && <span className="text-sm text-[rgb(30,58,43)]/60 font-normal"> einmalig</span>}
+                      </div>
+                      <div className="text-xl text-[rgb(30,58,43)] font-semibold">
+                        {pkg.monthly}
+                        {!pkg.monthly.includes("Std.") && <span className="text-sm text-[rgb(30,58,43)]/60 font-normal"> monatlich</span>}
+                      </div>
+                    </>
+                  ) : (
+                    <div className="text-xl text-[rgb(30,58,43)] font-semibold">
+                      Individuelles Angebot
+                    </div>
+                  )}
                 </div>
-                <p className="text-[rgb(30,58,43)]/70 text-sm mt-4">
-                  {pkg.description}
-                </p>
               </CardHeader>
               
               <CardContent className="space-y-4">
@@ -96,25 +101,38 @@ const PricingSection = () => {
                   ))}
                 </ul>
                 
-                <Button 
+                <SmoothScrollButton 
+                  targetId="kontakt"
                   className={`w-full py-3 font-semibold rounded-xl transition-all ${
                     pkg.popular 
                       ? 'bg-[rgb(207,220,255)] hover:bg-[rgb(30,58,43)] text-[rgb(30,58,43)] hover:text-white shadow-lg hover:shadow-xl'
                       : 'bg-[rgb(207,220,255)] hover:bg-[rgb(30,58,43)] text-[rgb(30,58,43)] hover:text-white'
                   }`}
                 >
-                  Paket wählen
-                </Button>
+                  Kontakt aufnehmen
+                </SmoothScrollButton>
               </CardContent>
             </Card>
           ))}
         </div>
         
-        <div className="text-center">
-          <div className="inline-block bg-white/80 backdrop-blur-sm rounded-xl px-8 py-4 shadow-lg">
-            <p className="text-[rgb(30,58,43)] font-medium">
+        <div className="text-center space-y-8">
+          <div className="inline-block bg-white/80 backdrop-blur-sm rounded-xl px-8 py-6 shadow-lg">
+            <p className="text-[rgb(30,58,43)] font-medium mb-2">
               Alle Pakete beinhalten Hosting, Updates, DSGVO-Monitoring
             </p>
+            <div className="h-px w-full bg-[rgb(30,58,43)]/10 my-4"></div>
+            <div className="text-[rgb(30,58,43)]/80">
+              <p className="font-medium mb-2">Flex Add-on verfügbar</p>
+              <p className="text-sm">Für projektbasierte Anpassungen und Einzelleistungen bieten wir flexible Stundenpakete zu 95 €/Std.</p>
+              <SmoothScrollButton 
+                targetId="kontakt"
+                variant="link"
+                className="text-[rgb(30,58,43)] hover:text-[rgb(30,58,43)]/70 font-medium mt-2"
+              >
+                Mehr erfahren →
+              </SmoothScrollButton>
+            </div>
           </div>
         </div>
       </div>

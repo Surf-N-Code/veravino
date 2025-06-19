@@ -12,7 +12,7 @@ const BenefitsSection = () => {
     {
       icon: Clock,
       title: "24 / 7 Service",
-      description: "Nina schläft nie – ideal für internationale Kundschaft und Spontankäufe."
+      description: "Vera Vino schläft nie – ideal für internationale Kundschaft und Spontankäufe."
     },
     {
       icon: Users,
@@ -23,11 +23,6 @@ const BenefitsSection = () => {
       icon: BarChart,
       title: "Datengestützte Insights",
       description: "Chat-Logs zeigen Trends für Marketing und Produktion."
-    },
-    {
-      icon: Shield,
-      title: "Rechts- & DSGVO-Sicherheit",
-      description: "Altersprüfung integriert, Hosting in der EU."
     },
     {
       icon: ArrowUpRight,

@@ -1,14 +1,8 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Users, ShoppingCart, Globe, RefreshCw, Settings } from "lucide-react";
 
 const FeaturesSection = () => {
   const features = [
-    {
-      icon: Search,
-      title: "RAG-Technologie",
-      description: "Faktenbasierte Antworten dank aktueller Katalog- & Lagerdaten"
-    },
     {
       icon: Users,
       title: "Geschmacksprofil-Match",
@@ -33,6 +27,11 @@ const FeaturesSection = () => {
       icon: Settings,
       title: "White-Label-fähig",
       description: "Für andere Weingüter adaptierbar"
+    },
+    {
+      icon: Search,
+      title: "Weinwissen & Beratung",
+      description: "Expertenwissen zu Weinbau, Rebsorten und Weinkultur"
     }
   ];
 

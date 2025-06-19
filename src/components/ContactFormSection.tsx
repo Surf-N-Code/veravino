@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Mail, Phone, MapPin, Loader2 } from "lucide-react";
+import { toast } from "sonner";
 
 const ContactFormSection = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +15,7 @@ const ContactFormSection = () => {
     company: "",
     message: ""
   });
-  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -25,22 +25,44 @@ const ContactFormSection = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
     
-    toast({
-      title: "Nachricht gesendet!",
-      description: "Wir werden uns bald bei Ihnen melden.",
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      message: ""
-    });
+    try {
+      // Send to our API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      // Show success toast
+      toast.success('Nachricht gesendet!', {
+        description: 'Wir werden uns bald bei Ihnen melden.',
+      });
+      
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        company: "",
+        message: ""
+      });
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast.error('Fehler beim Senden', {
+        description: 'Bitte versuchen Sie es später erneut oder kontaktieren Sie uns per E-Mail.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -70,7 +92,7 @@ const ContactFormSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[rgb(30,58,43)] mb-1">Telefon</h4>
-                  <p className="text-[rgb(30,58,43)]/70">+49 (0) 6507 - 1234</p>
+                  <p className="text-[rgb(30,58,43)]/70"><a href="tel:+4915679571798">+49 (0) 15679 571798</a></p>
                 </div>
               </div>
 
@@ -80,7 +102,7 @@ const ContactFormSection = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-[rgb(30,58,43)] mb-1">E-Mail</h4>
-                  <p className="text-[rgb(30,58,43)]/70">chatbot@nik-weis.de</p>
+                  <p className="text-[rgb(30,58,43)]/70"><a href="mailto:norman@veravino.com">norman@veravino.com</a></p>
                 </div>
               </div>
 
@@ -91,9 +113,9 @@ const ContactFormSection = () => {
                 <div>
                   <h4 className="font-semibold text-[rgb(30,58,43)] mb-1">Adresse</h4>
                   <p className="text-[rgb(30,58,43)]/70">
-                    Nik Weis – St. Urbans-Hof<br />
-                    Urbanusstraße 16<br />
-                    54498 Leiwen
+                    Norman Dilthey<br />
+                    Graf-Recke-Str. 85<br />
+                    40239 Düsseldorf
                   </p>
                 </div>
               </div>
@@ -169,9 +191,17 @@ const ContactFormSection = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-[rgb(30,58,43)] hover:bg-[rgb(30,58,43)]/90 text-white py-3 text-lg font-semibold rounded-lg transition-all"
+                  className="w-full bg-[rgb(30,58,43)] hover:bg-[rgb(30,58,43)]/90 text-white py-3 text-lg font-semibold rounded-lg transition-all cursor-pointer disabled:cursor-not-allowed"
+                  disabled={isSubmitting}
                 >
-                  Nachricht senden
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 mr-2 animate-spin" />
+                      Wird gesendet...
+                    </>
+                  ) : (
+                    'Nachricht senden'
+                  )}
                 </Button>
               </form>
             </CardContent>

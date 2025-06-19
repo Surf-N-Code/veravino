@@ -1,22 +1,7 @@
-"use client";
-
-import { Button } from "@/components/ui/button";
+import { SmoothScrollButton } from "@/components/ui/smooth-scroll-button";
+import { AnimatedChatBubbles } from "./AnimatedChatBubbles";
 
 const HeroSection = () => {
-  const scrollToDemo = () => {
-    const demoSection = document.getElementById('demo');
-    if (demoSection) {
-      demoSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToPricing = () => {
-    const pricingSection = document.getElementById('preise');
-    if (pricingSection) {
-      pricingSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="relative py-24 px-6 text-center bg-[rgb(248,244,240)]">
       {/* Background decorative elements */}
@@ -26,7 +11,7 @@ const HeroSection = () => {
       </div>
       
       <div className="container mx-auto max-w-4xl relative z-10">
-        <h1 className="text-8xl md:text-4xl lg:text-8xl font-bold text-[rgb(30,58,43)] mb-8 leading-tight">
+        <h1 className="text-4xl md:text-4xl lg:text-8xl font-bold text-[rgb(30,58,43)] mb-8 leading-tight">
           Verkaufe Wein.{" "}
           <span className="relative inline-block">
             24/7.
@@ -39,20 +24,23 @@ const HeroSection = () => {
         
         {/* Action buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button 
-            onClick={scrollToPricing}
+          <SmoothScrollButton 
+            targetId="preise"
             className="bg-[rgb(30,58,43)] hover:bg-[rgb(30,58,43)]/90 text-white px-8 py-4 text-lg rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
           >
             Preise ansehen
-          </Button>
-          <Button 
-            onClick={scrollToDemo}
+          </SmoothScrollButton>
+          <SmoothScrollButton 
+            targetId="demo"
             variant="outline"
             className="border-[rgb(30,58,43)] text-[rgb(30,58,43)] hover:bg-[rgb(30,58,43)] hover:text-white px-8 py-4 text-lg rounded-full font-semibold transition-all shadow-lg hover:shadow-xl"
           >
             Demo ansehen
-          </Button>
+          </SmoothScrollButton>
         </div>
+
+        {/* Animated Chat Interface */}
+        <AnimatedChatBubbles />
       </div>
     </section>
   );
