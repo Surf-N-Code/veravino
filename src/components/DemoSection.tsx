@@ -13,13 +13,13 @@ const DemoSection = () => {
         <p className="text-xl text-center text-gray-600 mb-12">
           Sehen Sie VeraVino in Aktion:
         </p>
-        
+
         <div className="relative bg-gradient-to-br from-amber-50 to-green-50 rounded-3xl p-2 md:p-8 shadow-xl">
           {/* YouTube Video Container */}
           <div className="relative w-full max-w-4xl mx-auto">
             <div className="relative aspect-video bg-black rounded-2xl overflow-hidden shadow-2xl">
               <iframe
-                src="https://www.youtube.com/embed/tY07XTqMUOM?rel=0&modestbranding=1"
+                src="https://www.youtube.com/embed/Qo-p2pZuQI4?si=YLGxFabF_g_0fmGs?rel=0&modestbranding=1"
                 title="VeraVino Demo Video"
                 className="w-full h-full"
                 frameBorder="0"
