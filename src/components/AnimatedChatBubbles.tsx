@@ -41,7 +41,7 @@ export const AnimatedChatBubbles = () => {
     messages.forEach((_, index) => {
       setTimeout(() => {
         setVisibleMessages(prev => prev + 1);
-      }, messages[index].delay);
+      }, messages?.[index]?.delay ?? 0);
     });
   }, []);
 
