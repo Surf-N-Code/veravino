@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Clock, Users, BarChart, Shield, ArrowUpRight, Wine } from "lucide-react";
+import { TrendingUp, Clock, Users, BarChart, ArrowUpRight, Wine } from "lucide-react";
 
 const BenefitsSection = () => {
   const benefits = [

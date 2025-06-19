@@ -1,6 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Bot, MessageCircle, Play } from "lucide-react";
+import { Play } from "lucide-react";
 
 const DemoSection = () => {
   return (

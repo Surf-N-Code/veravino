@@ -5,17 +5,17 @@ import { Star } from "lucide-react";
 const TestimonialsSection = () => {
   const testimonials = [
     {
-      quote: "Seit Vera Vino online ist, kaufen Besucher doppelt so oft direkt nach der Beratung.",
-      author: "Max Mustermann",
-      role: "E-Commerce-Manager",
-      company: "Weingut Mustermann",
+      quote: 'Seit Vera Vino online ist, kaufen Besucher doppelt so oft direkt nach der Beratung.',
+      author: 'Max Mustermann',
+      role: 'E-Commerce-Manager',
+      company: 'Weingut Mustermann',
       rating: 5
     },
     {
-      quote: "Der Bot trifft den Ton unserer Marke perfekt und spart uns jeden Monat Stunden an Support.",
-      author: "Maria Musterfrau",
-      role: "Marketingleiterin",
-      company: "Traditionskellerei Musterfrau",
+      quote: 'Der Bot trifft den Ton unserer Marke perfekt und spart uns jeden Monat Stunden an Support.',
+      author: 'Maria Musterfrau',
+      role: 'Marketingleiterin',
+      company: 'Traditionskellerei Musterfrau',
       rating: 5
     }
   ];

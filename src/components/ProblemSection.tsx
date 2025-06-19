@@ -1,4 +1,4 @@
-import { AlertTriangle, CheckCircle, ArrowRight } from "lucide-react";
+import { AlertTriangle, CheckCircle } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const ProblemSection = () => {
