@@ -1,7 +1,8 @@
 "use client";
 
-import { Bot, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import VeraVinoLogo from "@/components/VeraVinoLogo";
 
 const Header = () => {
   const scrollToDemo = () => {
@@ -35,14 +36,8 @@ const Header = () => {
   return (
     <header className="w-full bg-[rgb(248,244,240)] border-b border-slate-200 sticky top-0 z-50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          <div className="w-8 h-8 bg-[rgb(30,58,43)] rounded-lg flex items-center justify-center">
-            <Bot className="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <span className="text-xl font-bold text-[rgb(30,58,43)]">Vera Vino</span>
-            <div className="text-xs text-[rgb(30,58,43)]/70 font-medium">AI-Weinberater</div>
-          </div>
+        <div className="flex items-center">
+          <VeraVinoLogo width={140} height={32} className="h-8 w-auto" />
         </div>
         
         <Button variant="ghost" size="sm" className="md:hidden text-[rgb(30,58,43)] hover:bg-[rgb(30,58,43)] hover:text-white">
